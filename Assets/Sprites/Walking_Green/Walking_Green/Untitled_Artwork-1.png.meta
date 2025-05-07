@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 0bd5cb29636415549b530dab6a4b71b4
+guid: 31793069e95894c4c80b08762da40510
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2018536436892214778
-    second: platformpng_0
+      213: -3739957133524300147
+    second: Untitled_Artwork-1_0
+  - first:
+      213: 4212383234984719242
+    second: Untitled_Artwork-1_1
+  - first:
+      213: 3276031004063827194
+    second: Untitled_Artwork-1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: platformpng_0
+      name: Untitled_Artwork-1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2363
-        height: 442
+        x: 1004
+        y: 1056
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af5a427d138430c10800000000000000
-      internalID: 2018536436892214778
+      spriteID: d8e881d5dc0091cc0800000000000000
+      internalID: -3739957133524300147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-1_1
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 294
+        width: 69
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83331beb34657a30800000000000000
+      internalID: 4212383234984719242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_Artwork-1_2
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 331
+        width: 451
+        height: 715
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4046e47dcc67d20800000000000000
+      internalID: 3276031004063827194
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      platformpng_0: 2018536436892214778
+      Untitled_Artwork-1_0: -3739957133524300147
+      Untitled_Artwork-1_1: 4212383234984719242
+      Untitled_Artwork-1_2: 3276031004063827194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

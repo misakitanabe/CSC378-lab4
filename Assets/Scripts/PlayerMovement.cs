@@ -27,10 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
         // Flip player based on move direction
         if (horizontalInput > 0.01f) {
-            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            transform.localScale = new Vector3(1, 1, 1);
         }
         else if (horizontalInput < -0.01f) {
-            transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
 
         // Set animator params

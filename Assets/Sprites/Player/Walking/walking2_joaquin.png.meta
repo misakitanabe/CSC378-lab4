@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 0bd5cb29636415549b530dab6a4b71b4
+guid: 425a9cdbb523a415cb9c869c238ad955
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2018536436892214778
-    second: platformpng_0
+      213: 2456509712992553527
+    second: walking2_joaquin_0
+  - first:
+      213: -5337644208686384974
+    second: walking2_joaquin_1
+  - first:
+      213: 3392804115299610934
+    second: walking2_joaquin_2
+  - first:
+      213: -7384068602630965685
+    second: walking2_joaquin_3
+  - first:
+      213: -653473495777213647
+    second: walking2_joaquin_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +58,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 350
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: platformpng_0
+      name: walking2_joaquin_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2363
-        height: 442
+        x: 841
+        y: 783
+        width: 200
+        height: 203
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af5a427d138430c10800000000000000
-      internalID: 2018536436892214778
+      spriteID: 73ac73e9196471220800000000000000
+      internalID: 2456509712992553527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking2_joaquin_1
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 976
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8b3db4fd0ece5b0800000000000000
+      internalID: -5337644208686384974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking2_joaquin_2
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 985
+        width: 25
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 631bae4fd59a51f20800000000000000
+      internalID: 3392804115299610934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking2_joaquin_3
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 982
+        width: 43
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b46f0177ab4868990800000000000000
+      internalID: -7384068602630965685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking2_joaquin_4
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 317
+        width: 433
+        height: 487
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133011e51556ee6f0800000000000000
+      internalID: -653473495777213647
       vertices: []
       indices: 
       edges: []
@@ -138,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      platformpng_0: 2018536436892214778
+      walking2_joaquin_0: 2456509712992553527
+      walking2_joaquin_1: -5337644208686384974
+      walking2_joaquin_2: 3392804115299610934
+      walking2_joaquin_3: -7384068602630965685
+      walking2_joaquin_4: -653473495777213647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

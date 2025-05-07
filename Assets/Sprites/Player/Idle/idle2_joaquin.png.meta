@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 0bd5cb29636415549b530dab6a4b71b4
+guid: a15bd46c90a8b414886b47ee1e04b792
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2018536436892214778
-    second: platformpng_0
+      213: -16473550517099156
+    second: idle2_joaquin_0
+  - first:
+      213: -668753305302329536
+    second: idle2_joaquin_1
+  - first:
+      213: 8106121910533161718
+    second: idle2_joaquin_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 600
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: platformpng_0
+      name: idle2_joaquin_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2363
-        height: 442
+        x: 631
+        y: 59
+        width: 609
+        height: 795
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af5a427d138430c10800000000000000
-      internalID: 2018536436892214778
+      spriteID: c652d31a46975cff0800000000000000
+      internalID: -16473550517099156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle2_joaquin_1
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 781
+        width: 376
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047161b796c18b6f0800000000000000
+      internalID: -668753305302329536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle2_joaquin_2
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 48
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f20757fdeabe7070800000000000000
+      internalID: 8106121910533161718
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      platformpng_0: 2018536436892214778
+      idle2_joaquin_0: -16473550517099156
+      idle2_joaquin_1: -668753305302329536
+      idle2_joaquin_2: 8106121910533161718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
