@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 737735a7eb149ae48ac54787c1bc5c83
+guid: 752c42b61b79cf54ba4f6da88633b113
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4802521089437065874
-    second: Lab4Background_0
+      213: -5164856249432775721
+    second: Untitled_Artwork-3 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lab4Background_0
+      name: Untitled_Artwork-3 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2363
-        height: 1575
+        x: 105
+        y: 183
+        width: 1436
+        height: 1861
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 292e73a6c7bf5a240800000000000000
-      internalID: 4802521089437065874
+      spriteID: 7d36a901b9eb258b0800000000000000
+      internalID: -5164856249432775721
       vertices: []
       indices: 
       edges: []
