@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: deb1e710c94d4bf41b18bc8e28b3649e
+guid: 0892ce849c91b154389a9bd70b48725b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1399841339835054098
-    second: Untitled_Artwork-2 2_0
-  - first:
-      213: -7291946377710019073
-    second: Untitled_Artwork-2 2_1
+      213: -3739957133524300147
+    second: Untitled_Artwork-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork-2 2_0
+      name: golem1
       rect:
         serializedVersion: 2
-        x: 66
-        y: 172
-        width: 1447
-        height: 1802
+        x: 30
+        y: 171
+        width: 1500
+        height: 1803
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee78935d7b3c29ce0800000000000000
-      internalID: -1399841339835054098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Untitled_Artwork-2 2_1
-      rect:
-        serializedVersion: 2
-        x: 833
-        y: 1963
-        width: 28
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ffdd563676dcdca90800000000000000
-      internalID: -7291946377710019073
+      spriteID: d8e881d5dc0091cc0800000000000000
+      internalID: -3739957133524300147
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 85b04bed175154045bb8e1769400816e
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled_Artwork-2 2_0: -1399841339835054098
-      Untitled_Artwork-2 2_1: -7291946377710019073
+      golem1: -3739957133524300147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
