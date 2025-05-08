@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             else 
                 body.gravityScale = 7;
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.UpArrow))
                 Jump();
         }
         else    
@@ -90,6 +90,6 @@ public class PlayerMovement : MonoBehaviour
 
     public bool canAttack()
     {
-        return isGrounded() && !onWall();
+        return !onWall();
     }
 }
