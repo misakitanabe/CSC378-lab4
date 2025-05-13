@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     private Animator anim;
     private float lifetime;
 
-
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -33,6 +32,15 @@ public class Projectile : MonoBehaviour
         hit = true;
         boxCollider.enabled = false;
         anim.SetTrigger("explode");
+
+        if (collision.gameObject.CompareTag("Golem"))
+        {
+            GolemScript golem = collision.gameObject.GetComponent<GolemScript>();
+            if (golem != null)
+            {
+                golem.health -= 1; 
+            }
+        }
     }
 
     public void SetDirection(float _direction)
