@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!playerIsAlive)
             return;
-            
+
         horizontalInput = Input.GetAxis("Horizontal");
 
         // Flip player based on move direction
@@ -101,9 +101,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Golem"))
+        if (collision.gameObject.CompareTag("Golem") || collision.gameObject.CompareTag("Golem Boss"))
         {
-            Debug.Log("DIED");
             logic.gameOver();
             playerIsAlive = false;
         }

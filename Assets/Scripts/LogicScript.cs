@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class LogicScript : MonoBehaviour
 {
     public GameObject gameOverScreen;
+    public GameObject winScreen;
 
     public void restartGame()
     {
@@ -12,5 +13,10 @@ public class LogicScript : MonoBehaviour
     public void gameOver() 
     {
         gameOverScreen.SetActive(true);
+    }
+
+    public void gameWon() 
+    {
+        winScreen.SetActive(true);
     }
 }

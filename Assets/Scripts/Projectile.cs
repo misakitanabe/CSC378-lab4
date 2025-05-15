@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
         boxCollider.enabled = false; // here so that our projectiles don't move the mobs
         anim.SetTrigger("explode"); //parameter for animation
 
-        if (collision.gameObject.CompareTag("Golem"))
+        if (collision.gameObject.CompareTag("Golem") || collision.gameObject.CompareTag("Golem Boss"))
         {
             GolemScript golem = collision.gameObject.GetComponent<GolemScript>(); // get the game object that was hit and adjusts it's health
             if (golem != null)

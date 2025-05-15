@@ -6,10 +6,12 @@ public class GolemScript : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     private BoxCollider2D boxCollider;
     public int health = 10;
+    public LogicScript logic;
 
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
 
@@ -25,6 +27,10 @@ public class GolemScript : MonoBehaviour
 
         if (health == 0) {
             Destroy(gameObject);
+
+            if (gameObject.tag == "Golem Boss") {
+                logic.gameWon();
+            }
         }
     }
 
