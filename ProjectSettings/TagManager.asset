@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Golem
+  - Logic
   layers:
   - Default
   - TransparentFX

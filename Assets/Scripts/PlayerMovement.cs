@@ -12,17 +12,23 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCoolDown;
     private float horizontalInput;
+    public LogicScript logic;
+    public bool playerIsAlive = true;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (!playerIsAlive)
+            return;
+            
         horizontalInput = Input.GetAxis("Horizontal");
 
         // Flip player based on move direction
@@ -98,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Golem"))
         {
             Debug.Log("DIED");
+            logic.gameOver();
+            playerIsAlive = false;
         }
     }
 }
