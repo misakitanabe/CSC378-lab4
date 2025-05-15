@@ -7,8 +7,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float speed;
     private bool hit;
     private BoxCollider2D boxCollider;
-    private Animator anim;
-    private float lifetime;
+    private Animator anim; // 
+    private float lifetime; // duration of how long our projectile will continue to keep going
 
     private void Awake()
     {
@@ -29,13 +29,19 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hit = true;
-        boxCollider.enabled = false;
-        anim.SetTrigger("explode");
+        // Need to exclude player as an object to hit
+        if (collision.gameObject.CompareTag("Player")){
+            return;
+        } 
+
+        // Collision-Enabled Objects
+        hit = true; 
+        boxCollider.enabled = false; // here so that our projectiles don't move the mobs
+        anim.SetTrigger("explode"); //parameter for animation
 
         if (collision.gameObject.CompareTag("Golem"))
         {
-            GolemScript golem = collision.gameObject.GetComponent<GolemScript>();
+            GolemScript golem = collision.gameObject.GetComponent<GolemScript>(); // get the game object that was hit and adjusts it's health
             if (golem != null)
             {
                 golem.health -= 1; 
@@ -57,8 +63,8 @@ public class Projectile : MonoBehaviour
 
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
-
-    private void Deactivate()
+    // Purpose: Get's rid of gameObject *doesn't destory, simply deactivates*, for projectiles on crash
+    private void Deactivate() 
     {
         gameObject.SetActive(false);
     }
