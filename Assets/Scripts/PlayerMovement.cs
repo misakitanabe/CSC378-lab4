@@ -92,4 +92,12 @@ public class PlayerMovement : MonoBehaviour
     {
         return !onWall();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Golem"))
+        {
+            Debug.Log("DIED");
+        }
+    }
 }
