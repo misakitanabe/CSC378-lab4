@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c814030aaddd4f8499119188801625b0
+guid: 294ba97edc6efd24fb00452535bfa71f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8486031539342236817
-    second: Untitled_Artwork-7_0
+      213: -3257651061262804805
+    second: piano_keys_and_notes_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork-7_0
+      name: piano_keys_and_notes_0
       rect:
         serializedVersion: 2
-        x: 220
-        y: 139
-        width: 426
-        height: 793
+        x: 0
+        y: 0
+        width: 840
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19c514f59b074c570800000000000000
-      internalID: 8486031539342236817
+      spriteID: bb8914b9e9f7ac2d0800000000000000
+      internalID: -3257651061262804805
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Untitled_Artwork-7_0: 8486031539342236817
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
