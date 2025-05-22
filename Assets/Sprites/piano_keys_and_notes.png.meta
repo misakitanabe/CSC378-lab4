@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      piano_keys_and_notes_0: -3257651061262804805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
