@@ -24,7 +24,6 @@ public class AttackSelectorUI : MonoBehaviour
         noteHighlights[index].gameObject.SetActive(isNoteSelected[index]);
     }
 
-    // Optional: Expose selected note states to other scripts (like PlayerAttack)
     public bool[] GetSelectedNotes()
     {
         return isNoteSelected;
