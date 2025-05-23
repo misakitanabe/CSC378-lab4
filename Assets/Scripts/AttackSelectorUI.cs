@@ -9,13 +9,13 @@ public class AttackSelectorUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { SelectNote(0); }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { SelectNote(1); }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) { SelectNote(2); }
-        if (Input.GetKeyDown(KeyCode.Alpha4)) { SelectNote(3); }
-        if (Input.GetKeyDown(KeyCode.Alpha5)) { SelectNote(4); }
-        if (Input.GetKeyDown(KeyCode.Alpha6)) { SelectNote(5); }
-        if (Input.GetKeyDown(KeyCode.Alpha7)) { SelectNote(6); }
+    if (Input.GetKeyDown(KeyCode.Z)) { SelectNote(0); }
+    if (Input.GetKeyDown(KeyCode.X)) { SelectNote(1); }
+    if (Input.GetKeyDown(KeyCode.C)) { SelectNote(2); }
+    if (Input.GetKeyDown(KeyCode.V)) { SelectNote(3); }
+    if (Input.GetKeyDown(KeyCode.B)) { SelectNote(4); }
+    if (Input.GetKeyDown(KeyCode.N)) { SelectNote(5); }
+    if (Input.GetKeyDown(KeyCode.M)) { SelectNote(6); }
     }
 
     void SelectNote(int index)

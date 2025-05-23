@@ -30,13 +30,15 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         // Update which move the play has picked
-        if (Input.GetKey(KeyCode.Alpha1)) { attack_state = 0; }
-        if (Input.GetKey(KeyCode.Alpha2)) { attack_state = 1; }
-        if (Input.GetKey(KeyCode.Alpha3)) { attack_state = 2; }
-        if (Input.GetKey(KeyCode.Alpha4)) { attack_state = 3; }
-        if (Input.GetKey(KeyCode.Alpha5)) { attack_state = 4; }
-        if (Input.GetKey(KeyCode.Alpha6)) { attack_state = 5; }
-        if (Input.GetKey(KeyCode.Alpha7)) { attack_state = 6; }
+        // Update which move the player has picked (Z–M instead of 1–7)
+        if (Input.GetKey(KeyCode.Z)) { attack_state = 0; }
+        if (Input.GetKey(KeyCode.X)) { attack_state = 1; }
+        if (Input.GetKey(KeyCode.C)) { attack_state = 2; }
+        if (Input.GetKey(KeyCode.V)) { attack_state = 3; }
+        if (Input.GetKey(KeyCode.B)) { attack_state = 4; }
+        if (Input.GetKey(KeyCode.N)) { attack_state = 5; }
+        if (Input.GetKey(KeyCode.M)) { attack_state = 6; }
+
 
         // Attack Event Logic
         if (Input.GetKey(KeyCode.Space) && cooldownTimer > attackCooldown && playerMovement.canAttack())
