@@ -6,37 +6,46 @@ public class GolemScript : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     private BoxCollider2D boxCollider;
     public int health = 10;
-    public LogicScript logic;
+    [SerializeField] private LogicScript logic;
+    [SerializeField] private Health playerHealth;
 
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
-
 
     // Update is called once per frame
     void Update()
     {
         transform.position += moveSpeed * Time.deltaTime * Vector3.left;
 
-        if (onWall()) {
+        if (onWall())
+        {
             moveSpeed *= -1;
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        if (health == 0) {
+        if (health == 0)
+        {
             Destroy(gameObject);
 
-            if (gameObject.tag == "Golem Boss") {
+            if (gameObject.tag == "Golem Boss")
+            {
                 logic.gameWon();
             }
         }
     }
-
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(1);
+        }
     }
 }

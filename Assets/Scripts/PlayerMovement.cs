@@ -12,22 +12,19 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCoolDown;
     private float horizontalInput;
-    public LogicScript logic;
-    public bool playerIsAlive = true;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (!playerIsAlive)
-            return;
+        // if (!playerIsAlive)
+        //     return;
 
         horizontalInput = Input.GetAxis("Horizontal");
 
@@ -97,14 +94,5 @@ public class PlayerMovement : MonoBehaviour
     public bool canAttack()
     {
         return !onWall();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Golem") || collision.gameObject.CompareTag("Golem Boss"))
-        {
-            logic.gameOver();
-            playerIsAlive = false;
-        }
     }
 }
