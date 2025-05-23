@@ -3,29 +3,30 @@ using UnityEngine.UI;
 
 public class AttackSelectorUI : MonoBehaviour
 {
-    public Image[] noteHighlights;
+    public Image[] noteHighlights;  // Drag highlight panels in order: Z, X, C, V, B, N, M
 
-    private int selectedIndex = 0;
+    private bool[] isNoteSelected = new bool[7];  // true = selected
 
     void Update()
     {
-    if (Input.GetKeyDown(KeyCode.Z)) { SelectNote(0); }
-    if (Input.GetKeyDown(KeyCode.X)) { SelectNote(1); }
-    if (Input.GetKeyDown(KeyCode.C)) { SelectNote(2); }
-    if (Input.GetKeyDown(KeyCode.V)) { SelectNote(3); }
-    if (Input.GetKeyDown(KeyCode.B)) { SelectNote(4); }
-    if (Input.GetKeyDown(KeyCode.N)) { SelectNote(5); }
-    if (Input.GetKeyDown(KeyCode.M)) { SelectNote(6); }
+        if (Input.GetKeyDown(KeyCode.Z)) { ToggleNote(0); }
+        if (Input.GetKeyDown(KeyCode.X)) { ToggleNote(1); }
+        if (Input.GetKeyDown(KeyCode.C)) { ToggleNote(2); }
+        if (Input.GetKeyDown(KeyCode.V)) { ToggleNote(3); }
+        if (Input.GetKeyDown(KeyCode.B)) { ToggleNote(4); }
+        if (Input.GetKeyDown(KeyCode.N)) { ToggleNote(5); }
+        if (Input.GetKeyDown(KeyCode.M)) { ToggleNote(6); }
     }
 
-    void SelectNote(int index)
+    void ToggleNote(int index)
     {
-        selectedIndex = index;
-        Debug.Log("Selected note index: " + index);
+        isNoteSelected[index] = !isNoteSelected[index]; // toggle on/off
+        noteHighlights[index].gameObject.SetActive(isNoteSelected[index]);
+    }
 
-        for (int i = 0; i < noteHighlights.Length; i++)
-        {
-            noteHighlights[i].gameObject.SetActive(i == selectedIndex);
-        }
+    // Optional: Expose selected note states to other scripts (like PlayerAttack)
+    public bool[] GetSelectedNotes()
+    {
+        return isNoteSelected;
     }
 }
