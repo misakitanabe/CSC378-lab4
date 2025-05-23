@@ -11,35 +11,21 @@ public class PlayerAttack : MonoBehaviour
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
 
-    // Combo attack Logic
-    private int attack_state = 0;
+    public List<AudioClip> attackSounds;
+    private AudioSource audioSource;
 
-    public List<AudioClip> attackSounds;       // Different sounds for each attack
-    private AudioSource audioSource;           // Only ONE AudioSource to play them all
-
-    // note: if we do mulitple attacks, only one audio source is given at one moment and cut audio short, 
-    // have to implement multiple audio sources.
+    private AttackSelectorUI attackSelectorUI;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
-        audioSource = GetComponent<AudioSource>(); // This audiosource is the 
+        audioSource = GetComponent<AudioSource>();
+        attackSelectorUI = FindObjectOfType<AttackSelectorUI>(); // finds UI manager in scene
     }
 
     private void Update()
     {
-        // Update which move the play has picked
-        // Update which move the player has picked (Z–M instead of 1–7)
-        if (Input.GetKey(KeyCode.Z)) { attack_state = 0; }
-        if (Input.GetKey(KeyCode.X)) { attack_state = 1; }
-        if (Input.GetKey(KeyCode.C)) { attack_state = 2; }
-        if (Input.GetKey(KeyCode.V)) { attack_state = 3; }
-        if (Input.GetKey(KeyCode.B)) { attack_state = 4; }
-        if (Input.GetKey(KeyCode.N)) { attack_state = 5; }
-        if (Input.GetKey(KeyCode.M)) { attack_state = 6; }
-
-
         // Attack Event Logic
         if (Input.GetKey(KeyCode.Space) && cooldownTimer > attackCooldown && playerMovement.canAttack())
             Attack();
@@ -52,40 +38,25 @@ public class PlayerAttack : MonoBehaviour
         anim.SetTrigger("attack");
         cooldownTimer = 0;
 
-        // pool fireball
+        bool[] selectedNotes = attackSelectorUI.GetSelectedNotes();
 
-        /* 
-            Maybe put different animation / color in same pooling list, and just keep certain bounds for certain attack methods
-            Purpose: Color and certain attack animation specified 
-            0. do | 0 - 9
-            1. re | 10-19
-            2. mi | 20 - 29
-            3. fa | 30 - 39
-            4. so | 40 - 49
-            5. la | 50 - 59
-            6. ti | 60 - 69
-        */
-
-        musicNotes[attack_state].transform.position = firePoint.position;
-        musicNotes[attack_state].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
-        PlaySound(attack_state);
-    }
-
-    private int FindMusicNote()
-    {
-        for (int i = 0; i < musicNotes.Length; i++)
+        for (int i = 0; i < selectedNotes.Length; i++)
         {
-            if (!musicNotes[i].activeInHierarchy)
-                return i;
+            if (selectedNotes[i])
+            {
+                GameObject note = musicNotes[i];
+                note.transform.position = firePoint.position;
+                note.GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+                PlaySound(i);
+            }
         }
-        return 0;
     }
 
     public void PlaySound(int index)
     {
         if (index >= 0 && index < attackSounds.Count)
         {
-            audioSource.clip = attackSounds[index];  // ✅ Just reuse the same audioSource
+            audioSource.clip = attackSounds[index];
             audioSource.Play();
         }
         else
