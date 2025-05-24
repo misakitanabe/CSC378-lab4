@@ -332,12 +332,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 62
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 36
-  m_fontSizeMax: 48
+  m_fontSizeMin: 48
+  m_fontSizeMax: 62
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -400,8 +400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 539, y: -112}
-  m_SizeDelta: {x: 1000, y: 150}
+  m_AnchoredPosition: {x: 1010.5992, y: -502.124}
+  m_SizeDelta: {x: 1901.198, y: 878.249}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1789148440
 GameObject:
@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 1789148443}
   - component: {fileID: 1789148442}
   - component: {fileID: 1789148441}
+  - component: {fileID: 1789148445}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -506,6 +507,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1789148445
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789148440}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1881011249
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,12 +549,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 184037296}
+  canvasGroup: {fileID: 1789148445}
   cutsceneLines:
-  - test1test1test1test1test1test1
-  - 'test2 test2 test2 test2 test2 test2 '
-  - 'test3 test3 test3 test3 test3 '
-  - 'test4 test4 test4 test4 test4 '
-  textDelay: 2
+  - 'On the once-vibrant planet of Harmonia, music was not just an art form; it was
+    the very lifeblood of the world, woven into every river, forest, and breeze. '
+  - That is, until a mysterious calamity stole the sound away, leaving the world
+    cold, gray, and silent.
+  - You play as Cadence, a whimsical, determined spirit of music whose entire being
+    is rooted in melody and creativity.
+  - Use the letter keys on your keyboard Z through M to choose which note you want
+    to attack with.
+  - Press the spacebar to play your attack.
+  - Use the arrow keys to move around, and try to defeat all the elementals!
+  - Good luck Cadence, you're the world's only hope....
+  textDelay: 0.05
+  lineDelay: 1
+  fadeDuration: 1
+  blipSound: {fileID: 0}
 --- !u!4 &1881011251
 Transform:
   m_ObjectHideFlags: 0
@@ -593,7 +617,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
