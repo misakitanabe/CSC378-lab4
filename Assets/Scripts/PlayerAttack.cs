@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         audioSource = GetComponent<AudioSource>();
-        attackSelectorUI = FindObjectOfType<AttackSelectorUI>(); // finds UI manager in scene
+        attackSelectorUI = FindFirstObjectByType<AttackSelectorUI>(); // finds UI manager in scene
     }
 
     private void Update()
