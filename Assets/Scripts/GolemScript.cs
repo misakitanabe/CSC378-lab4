@@ -7,7 +7,7 @@ public class GolemScript : MonoBehaviour
     private BoxCollider2D boxCollider;
     public int health = 10;
     [SerializeField] private LogicScript logic;
-    [SerializeField] private Health playerHealth;
+    [SerializeField] private PlayerHealth playerHealth;
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class GolemScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(1);
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
         }
     }
 }
