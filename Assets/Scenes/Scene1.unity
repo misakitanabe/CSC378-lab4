@@ -3634,6 +3634,9 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
+  dashPower: 20
+  dashDuration: 0.2
+  dashCooldown: 1
 --- !u!95 &790213575
 Animator:
   serializedVersion: 7
@@ -3705,7 +3708,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 99
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -44,10 +44,10 @@ public class PlayerAttack : MonoBehaviour
         {
             if (selectedNotes[i])
             {
+                PlaySound(i);
                 GameObject note = musicNotes[i];
                 note.transform.position = firePoint.position;
                 note.GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
-                PlaySound(i);
             }
         }
     }
@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
         if (index >= 0 && index < attackSounds.Count)
         {
             audioSource.clip = attackSounds[index];
-            audioSource.Play();
+            audioSource.PlayOneShot(attackSounds[index]);
         }
         else
         {
