@@ -9,7 +9,8 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        currentHealthBar.fillAmount = playerHealth.currentHealth / 6;
+        // the fillAmount dictates how many of the lives are colored in (not blacked out)
+        currentHealthBar.fillAmount = playerHealth.currentHealth / 6;   // divided by 6 bc that's the max lives rn
     }
 
     private void Update()

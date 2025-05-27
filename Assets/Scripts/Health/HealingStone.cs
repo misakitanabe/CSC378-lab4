@@ -11,8 +11,7 @@ public class HealingStone : MonoBehaviour
             PlayerHealth health = collision.GetComponent<PlayerHealth>();
             if (health != null)
             {
-                health.Heal(healAmount);
-                // Optional: play sound or animation
+                health.Heal(healAmount); // heals the player
                 Destroy(gameObject); // remove the stone
             }
         }
