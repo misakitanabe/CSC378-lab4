@@ -8,6 +8,7 @@ public class GolemScript : MonoBehaviour
     public int health = 10;
     [SerializeField] private LogicScript logic;
     [SerializeField] private PlayerHealth playerHealth;
+    public AudioSource hitSound;
 
     private void Awake()
     {
@@ -41,10 +42,12 @@ public class GolemScript : MonoBehaviour
         return raycastHit.collider != null;
     }
 
+    // When player collides with golem
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            hitSound.Play();
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
         }
     }
