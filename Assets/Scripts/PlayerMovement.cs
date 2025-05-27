@@ -7,11 +7,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+
+    [Header("Dash Settings")]
+    [SerializeField] private float dashPower = 20f;
+    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float dashCooldown = 1f;
+
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
+
     private float wallJumpCoolDown;
     private float horizontalInput;
+
+    private bool isDashing;
+    private float dashTimer;
+    private float lastDashTime = -Mathf.Infinity;
 
     private void Awake()
     {
@@ -20,27 +31,43 @@ public class PlayerMovement : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        // if (!playerIsAlive)
-        //     return;
+        // If we're dashing, ignore all other movement
+        if (isDashing)
+        {
+            dashTimer -= Time.deltaTime;
+            if (dashTimer <= 0f)
+            {
+                isDashing = false;
+                body.gravityScale = 7;
+            }
+            return;
+        }
 
         horizontalInput = Input.GetAxis("Horizontal");
 
-        // Flip player based on move direction
-        if (horizontalInput > 0.01f) {
+        // Flip player based on movement direction
+        if (horizontalInput > 0.01f)
+        {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (horizontalInput < -0.01f) {
+        else if (horizontalInput < -0.01f)
+        {
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        // Set animator params
         anim.SetBool("Run", horizontalInput != 0);
         anim.SetBool("grounded", isGrounded());
 
-        // Wall jump logic
+        // DASH
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time >= lastDashTime + dashCooldown)
+        {
+            Dash();
+            return;
+        }
+
+        // Movement
         if (wallJumpCoolDown > 0.2f)
         {
             body.linearVelocity = new Vector2(horizontalInput * speed, body.linearVelocity.y);
@@ -50,49 +77,80 @@ public class PlayerMovement : MonoBehaviour
                 body.gravityScale = 0;
                 body.linearVelocity = Vector2.zero;
             }
-            else 
+            else
+            {
                 body.gravityScale = 7;
+            }
 
             if (Input.GetKey(KeyCode.UpArrow))
                 Jump();
         }
-        else    
+        else
+        {
             wallJumpCoolDown += Time.deltaTime;
+        }
     }
 
-    private void Jump() {
+    private void Jump()
+    {
         if (isGrounded())
         {
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpPower);
             anim.SetTrigger("Jump");
         }
-        else if (onWall() && !isGrounded()) 
+        else if (onWall() && !isGrounded())
         {
             if (horizontalInput == 0)
             {
                 body.linearVelocity = new Vector2(-Math.Sign(transform.localScale.x) * 10, 0);
                 transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
-            else 
+            else
+            {
                 body.linearVelocity = new Vector2(-Math.Sign(transform.localScale.x) * 3, 6);
+            }
             wallJumpCoolDown = 0;
         }
     }
 
+    private void Dash()
+    {
+        isDashing = true;
+        dashTimer = dashDuration;
+        lastDashTime = Time.time;
+
+        float dashDirection = transform.localScale.x; // 1 for right, -1 for left
+        body.linearVelocity = new Vector2(dashDirection * dashPower, 0);
+        body.gravityScale = 0;
+
+        // Optional: Play dash animation
+        // anim.SetTrigger("Dash");
+    }
+
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(
+            boxCollider.bounds.center, 
+            boxCollider.bounds.size, 
+            0, Vector2.down, 
+            0.1f, groundLayer
+        );
         return raycastHit.collider != null;
     }
 
     private bool onWall()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(
+            boxCollider.bounds.center, 
+            boxCollider.bounds.size, 
+            0, new Vector2(transform.localScale.x, 0), 
+            0.1f, wallLayer
+        );
         return raycastHit.collider != null;
     }
 
     public bool canAttack()
     {
-        return !onWall();
+        return !onWall() && !isDashing;
     }
 }
