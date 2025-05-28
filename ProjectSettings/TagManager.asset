@@ -9,6 +9,7 @@ TagManager:
   - Logic
   - Golem Boss
   - MusicNote
+  - FireSprite
   layers:
   - Default
   - TransparentFX

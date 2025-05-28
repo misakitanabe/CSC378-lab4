@@ -40,6 +40,18 @@ public class PlayerAttack : MonoBehaviour
 
         bool[] selectedNotes = attackSelectorUI.GetSelectedNotes();
 
+        //how are the indices formalized?
+        /*
+            0 - do | 0-9 
+            1 - re | 10-19
+            2 - mi | 20-29
+            3 - fa | 30-39
+            4 - so | 40-49
+            5 - la | 50-59
+            6 - ti | 60-69
+            I dont understand what ur doing...
+        */
+
         for (int i = 0; i < selectedNotes.Length; i++)
         {
             if (selectedNotes[i])
