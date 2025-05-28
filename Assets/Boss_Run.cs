@@ -8,7 +8,7 @@ public class Boss_Run : StateMachineBehaviour
     Rigidbody2D rb;
     public float speed = 1.1f;
     Fire_Boss boss;
-    public float attackRange = 500f;
+    public float attackRange = 6f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -26,7 +26,9 @@ public class Boss_Run : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 
+        Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
         if (Vector2.Distance(player.position, rb.position) <= attackRange){
+            Debug.Log("Boss attacking!");
             animator.SetTrigger("Attack");
         }
     }

@@ -67,4 +67,5 @@ public class ProjectileEnemy : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
 }
