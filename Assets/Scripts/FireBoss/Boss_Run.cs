@@ -7,7 +7,7 @@ public class Boss_Run : StateMachineBehaviour
     Transform player;
     Rigidbody2D rb;
     public float speed = 1.1f;
-    Fire_Boss boss;
+    FireBoss boss;
     public float attackRange = 6f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -15,7 +15,7 @@ public class Boss_Run : StateMachineBehaviour
     {
        player = GameObject.FindGameObjectWithTag("Player").transform;
        rb = animator.GetComponent<Rigidbody2D>();
-       boss = animator.GetComponent<Fire_Boss>();
+       boss = animator.GetComponent<FireBoss>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
