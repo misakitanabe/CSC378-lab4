@@ -30,21 +30,32 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Need to exclude player as an object to hit and projectiles ...
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MusicNote")){
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MusicNote"))
+        {
             return;
-        } 
+        }
 
         // Collision-Enabled Objects
-        hit = true; 
+        hit = true;
         boxCollider.enabled = false; // here so that our projectiles don't move the mobs
         anim.SetTrigger("explode"); //parameter for animation
 
-        if (collision.gameObject.CompareTag("Golem") || collision.gameObject.CompareTag("Golem Boss"))
+        // decreases golem health if hit
+        if (collision.gameObject.CompareTag("Golem"))
         {
             GolemScript golem = collision.gameObject.GetComponent<GolemScript>(); // get the game object that was hit and adjusts it's health
             if (golem != null)
             {
-                golem.health -= 1; 
+                golem.health -= 1;
+            }
+        }
+        // decreases boss health if hit
+        else if (collision.gameObject.CompareTag("Fire Boss"))
+        {
+            FireBoss boss = collision.gameObject.GetComponent<FireBoss>(); // get the game object that was hit and adjusts it's health
+            if (boss != null)
+            {
+                boss.health -= 1;
             }
         }
     }

@@ -59,8 +59,11 @@ public class PlayerAttack : MonoBehaviour
                 PlaySound(i);
                 GameObject noteHolder = musicNotes[i];          // MusicNote_Do in hierarchy
                 GameObject note = FindMusicNote(noteHolder);    // Do in hierarchy
-                note.transform.position = firePoint.position;
-                note.GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+                if (note)
+                {
+                    note.transform.position = firePoint.position;
+                    note.GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+                }
             }
         }
     }

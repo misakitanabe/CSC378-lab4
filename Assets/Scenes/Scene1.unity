@@ -19784,7 +19784,7 @@ GameObject:
   - component: {fileID: 1782794161}
   m_Layer: 0
   m_Name: Fire_Boss
-  m_TagString: Untagged
+  m_TagString: Fire Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19925,6 +19925,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 790213571}
   isFlipped: 0
+  health: 20
+  logic: {fileID: 252204279}
 --- !u!114 &1782794161
 MonoBehaviour:
   m_ObjectHideFlags: 0

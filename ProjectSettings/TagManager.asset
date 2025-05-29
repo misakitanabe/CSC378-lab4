@@ -7,9 +7,9 @@ TagManager:
   - Ground
   - Golem
   - Logic
-  - Golem Boss
   - MusicNote
   - FireSprite
+  - Fire Boss
   layers:
   - Default
   - TransparentFX

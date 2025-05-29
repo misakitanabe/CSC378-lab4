@@ -30,10 +30,10 @@ public class GolemScript : MonoBehaviour
         {
             Destroy(gameObject);
 
-            if (gameObject.tag == "Golem Boss")
-            {
-                logic.gameWon();
-            }
+            // if (gameObject.tag == "Golem Boss")
+            // {
+            //     logic.gameWon();
+            // }
         }
     }
     private bool onWall()

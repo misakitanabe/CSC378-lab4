@@ -7,7 +7,7 @@ public class Boss_Run : StateMachineBehaviour
     Transform player;
     Rigidbody2D rb;
     public float speed = 1.1f;
-    Fire_Boss boss;
+    FireBoss boss;
     public float attackRange = 6f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -15,7 +15,7 @@ public class Boss_Run : StateMachineBehaviour
     {
        player = GameObject.FindGameObjectWithTag("Player").transform;
        rb = animator.GetComponent<Rigidbody2D>();
-       boss = animator.GetComponent<Fire_Boss>();
+       boss = animator.GetComponent<FireBoss>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -26,7 +26,11 @@ public class Boss_Run : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 
+<<<<<<< HEAD:Assets/Boss_Run.cs
         //Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
+=======
+        // Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
+>>>>>>> c546b01fa73500651cd5c098727d5aca0fa51626:Assets/Scripts/FireBoss/Boss_Run.cs
         if (Vector2.Distance(player.position, rb.position) <= attackRange){
             //Debug.Log("Boss attacking!");
             animator.SetTrigger("Attack");
