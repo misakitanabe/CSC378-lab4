@@ -8,7 +8,7 @@ public class Boss_Run : StateMachineBehaviour
     Rigidbody2D rb;
     public float speed = 1.1f;
     FireBoss boss;
-    public float attackRange = 6f;
+    public float attackRange = 8f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -17,25 +17,27 @@ public class Boss_Run : StateMachineBehaviour
        rb = animator.GetComponent<Rigidbody2D>();
        boss = animator.GetComponent<FireBoss>();
     }
-
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.LookAtPlayer();
-        Vector2 target = new Vector2(player.position.x, rb.position.y);
-        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
-        rb.MovePosition(newPos);
+        
+        float distance = Vector2.Distance(player.position, rb.position);
+        // Debug.Log("Distance to player: " + distance + " | Within range? " + (distance <= attackRange));
 
-<<<<<<< HEAD:Assets/Boss_Run.cs
-        //Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
-=======
-        // Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
->>>>>>> c546b01fa73500651cd5c098727d5aca0fa51626:Assets/Scripts/FireBoss/Boss_Run.cs
-        if (Vector2.Distance(player.position, rb.position) <= attackRange){
-            //Debug.Log("Boss attacking!");
+        if (distance > attackRange)
+        {
+            // Only move if player is out of attack range
+            Vector2 target = new Vector2(player.position.x, rb.position.y);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+            rb.MovePosition(newPos);
+        }
+        else
+        {
+            // Player is in range, trigger attack
             animator.SetTrigger("Attack");
         }
     }
+
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

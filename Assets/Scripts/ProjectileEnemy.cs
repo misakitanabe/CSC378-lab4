@@ -9,11 +9,15 @@ public class ProjectileEnemy : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Animator anim; // 
     private float lifetime; // duration of how long our projectile will continue to keep going
+    [SerializeField] private AudioClip impactSound;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -27,24 +31,26 @@ public class ProjectileEnemy : MonoBehaviour
         if (lifetime > 5) gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // Need to exclude player as an object to hit and projectiles ...
         // if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MusicNote")){
         //     return;
         // } 
+        if (!hit)
+        {
+            hit = true;
+            boxCollider.enabled = false; // Prevent further collisions
+            anim.SetTrigger("explode");
 
-
-        // Collision-Enabled Objects
-        hit = true; 
-        boxCollider.enabled = true; // here so that our projectiles don't move the mobs
-        // ADD ANIMATION
-        anim.SetTrigger("explode"); //parameter for animation
-
+            // 🎵 Play sound
+            if (impactSound != null)
+                audioSource.PlayOneShot(impactSound);
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>(); // get the game object that was hit and adjusts it's health
-            player.TakeDamage(1.5f);
+            player.TakeDamage(1f);
         }
     }
 

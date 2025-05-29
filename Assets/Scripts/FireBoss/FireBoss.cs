@@ -10,9 +10,27 @@ public class FireBoss : MonoBehaviour
 	public bool isFlipped = false;
 	public int health = 10;
 	[SerializeField] private LogicScript logic;
+	[SerializeField] private AudioClip roarSound;
+	[SerializeField] private AudioSource roarSource;
+	private AudioSource audioSource;
+	private float roarCooldown;
 
 	void Update()
     {
+
+		roarCooldown -= Time.deltaTime;
+
+		if (roarCooldown <= 0f)
+		{
+			if (roarSound != null && audioSource != null)
+			{
+				roarSource.PlayOneShot(roarSound);
+			}
+
+			// Set a new random time until the next roar
+			roarCooldown = Random.Range(8f, 15f);
+		}
+
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -22,7 +40,14 @@ public class FireBoss : MonoBehaviour
                 logic.gameWon();
             }
         }
+
     }
+	void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+		roarCooldown = Random.Range(5f, 10f); // randomize first roar delay
+	}
+
 
 	public void LookAtPlayer()
 	{

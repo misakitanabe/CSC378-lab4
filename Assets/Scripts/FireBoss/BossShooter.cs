@@ -7,6 +7,11 @@ public class BossShooter : MonoBehaviour
     [SerializeField] private Transform firePoint;
     //[SerializeField] private float shootInterval = 2f;
     [SerializeField] private float shootDirection = -1f;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip shootSound;
+
+    
+
 
     // private void Start()
     // {
@@ -31,5 +36,11 @@ public class BossShooter : MonoBehaviour
         {
             projScript.SetDirection(shootDirection);
         }
+
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
     }
+
 }
