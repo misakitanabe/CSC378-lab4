@@ -37,9 +37,9 @@ public class ProjectileEnemy : MonoBehaviour
 
         // Collision-Enabled Objects
         hit = true; 
-        boxCollider.enabled = false; // here so that our projectiles don't move the mobs
+        boxCollider.enabled = true; // here so that our projectiles don't move the mobs
         // ADD ANIMATION
-        //anim.SetTrigger("explode"); //parameter for animation
+        anim.SetTrigger("explode"); //parameter for animation
 
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -67,5 +67,11 @@ public class ProjectileEnemy : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    // For instaniated objects
+    private void Destroy()
+    {
+        Destroy(gameObject); 
+    }
+
 
 }

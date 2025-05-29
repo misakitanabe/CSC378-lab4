@@ -12,7 +12,7 @@ public class BossShooter : MonoBehaviour
     // {
     //     StartCoroutine(ShootRepeatedly());
     // }
-
+    
     // private IEnumerator ShootRepeatedly()
     // {
     //     while (true)

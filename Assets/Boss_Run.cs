@@ -26,9 +26,9 @@ public class Boss_Run : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 
-        Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
+        //Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
         if (Vector2.Distance(player.position, rb.position) <= attackRange){
-            Debug.Log("Boss attacking!");
+            //Debug.Log("Boss attacking!");
             animator.SetTrigger("Attack");
         }
     }
