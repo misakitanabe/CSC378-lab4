@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6fa608f3ddfe24da1bdf40a5f6528243
+guid: fa8e3449537c74037924b9a38a2ff80b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7477851407203662870
-    second: Untitled_Artwork 51_0
+      213: 6550017295910430479
+    second: greenbar (2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 60
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork 51_0
+      name: greenbar (2)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
-        width: 31
-        height: 23
+        x: 17
+        y: 97
+        width: 102
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61c77894c3aa6c760800000000000000
-      internalID: 7477851407203662870
+      spriteID: f07e763f60656ea50800000000000000
+      internalID: 6550017295910430479
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled_Artwork 51_0: 7477851407203662870
+      greenbar (2)_0: 6550017295910430479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

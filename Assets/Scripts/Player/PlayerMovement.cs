@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,42 +10,62 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
 
     [Header("Dash Settings")]
+    [SerializeField] private GameObject dashSlider; 
     [SerializeField] private float dashPower = 20f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
-
+    private bool dashPowerActive = false;
+    public float dashPowerTimer = 0f;
+    public float dashPowerDuration;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-
     private float wallJumpCoolDown;
     private float horizontalInput;
-
     private bool isDashing;
     private float dashTimer;
     private float lastDashTime = -Mathf.Infinity;
+    private PlayerPowerUp powerUp;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        powerUp = GetComponent<PlayerPowerUp>();
+
+        // hide dash slider
+        dashSlider.SetActive(false);
     }
 
     private void Update()
     {
-        // If we're dashing, ignore all other movement
-        if (isDashing)
+        // if dash power is active 
+        if (dashPowerActive)
         {
-            dashTimer -= Time.deltaTime;
-            if (dashTimer <= 0f)
-            {
-                isDashing = false;
-                body.gravityScale = 7;
-            }
-            return;
-        }
+            dashPowerTimer -= Time.deltaTime; // update how much time left for dash power
 
+            // dash power up ran out
+            if (dashPowerTimer <= 0f)
+            {
+                dashPowerActive = false;
+                dashPowerTimer = 0f;
+                dashSlider.SetActive(false); // hide bar
+            }
+            
+            // If we're dashing, ignore all other movement
+            if (isDashing)
+            {
+                dashTimer -= Time.deltaTime;
+                if (dashTimer <= 0f)
+                {
+                    isDashing = false;
+                    body.gravityScale = 7;
+                }
+                return;
+            }
+        }
+        
         horizontalInput = Input.GetAxis("Horizontal");
 
         // Flip player based on movement direction
@@ -61,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("grounded", isGrounded());
 
         // DASH
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time >= lastDashTime + dashCooldown)
+        if (dashPowerActive && Input.GetKeyDown(KeyCode.LeftShift) && Time.time >= lastDashTime + dashCooldown)
         {
             Dash();
             return;
@@ -122,17 +143,23 @@ public class PlayerMovement : MonoBehaviour
         float dashDirection = transform.localScale.x; // 1 for right, -1 for left
         body.linearVelocity = new Vector2(dashDirection * dashPower, 0);
         body.gravityScale = 0;
+    }
 
-        // Optional: Play dash animation
-        // anim.SetTrigger("Dash");
+    public void ActivateDashPowerUp(float duration)
+    {
+        dashPowerActive = true;
+        dashPowerTimer = duration;
+        dashPowerDuration = duration;
+        powerUp.PowerUp(); // plays animation and sound
+        dashSlider.SetActive(true); // show bar
     }
 
     private bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(
-            boxCollider.bounds.center, 
-            boxCollider.bounds.size, 
-            0, Vector2.down, 
+            boxCollider.bounds.center,
+            boxCollider.bounds.size,
+            0, Vector2.down,
             0.1f, groundLayer
         );
         return raycastHit.collider != null;
