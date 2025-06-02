@@ -2234,6 +2234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1523932745}
   winScreen: {fileID: 199031722}
+  movement: {fileID: 790213574}
+  attack: {fileID: 790213576}
 --- !u!4 &252204280
 Transform:
   m_ObjectHideFlags: 0

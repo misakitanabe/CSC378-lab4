@@ -30,8 +30,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 // player dead
                 // todo: can add a dying animation
-                GetComponent<PlayerMovement>().enabled = false;
-                logic.gameOver();
+                logic.gameOver();   // displays gameover screen
                 dead = true;
             }
         }
