@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,19 +10,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
 
     [Header("Dash Settings")]
+    [SerializeField] private GameObject dashSlider; 
     [SerializeField] private float dashPower = 20f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
     private bool dashPowerActive = false;
-    private float dashPowerTimer = 0f;
-
+    public float dashPowerTimer = 0f;
+    public float dashPowerDuration;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-
     private float wallJumpCoolDown;
     private float horizontalInput;
-
     private bool isDashing;
     private float dashTimer;
     private float lastDashTime = -Mathf.Infinity;
@@ -33,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         powerUp = GetComponent<PlayerPowerUp>();
+
+        // hide dash slider
+        dashSlider.SetActive(false);
     }
 
     private void Update()
@@ -40,19 +43,16 @@ public class PlayerMovement : MonoBehaviour
         // if dash power is active 
         if (dashPowerActive)
         {
-            dashPowerTimer -= Time.deltaTime;
+            dashPowerTimer -= Time.deltaTime; // update how much time left for dash power
+
+            // dash power up ran out
             if (dashPowerTimer <= 0f)
             {
                 dashPowerActive = false;
                 dashPowerTimer = 0f;
-                // UpdateDashUI(0f); // Hide or reset UI
-                Debug.Log("Dashing ended");
+                dashSlider.SetActive(false); // hide bar
             }
-            else
-            {
-                // UpdateDashUI(dashPowerTimer / dashDuration); // 0 to 1
-            }
-
+            
             // If we're dashing, ignore all other movement
             if (isDashing)
             {
@@ -143,17 +143,15 @@ public class PlayerMovement : MonoBehaviour
         float dashDirection = transform.localScale.x; // 1 for right, -1 for left
         body.linearVelocity = new Vector2(dashDirection * dashPower, 0);
         body.gravityScale = 0;
-
-        // Optional: Play dash animation
-        // anim.SetTrigger("Dash");
     }
 
     public void ActivateDashPowerUp(float duration)
     {
         dashPowerActive = true;
         dashPowerTimer = duration;
-        Debug.Log("Activated dashing");
+        dashPowerDuration = duration;
         powerUp.PowerUp(); // plays animation and sound
+        dashSlider.SetActive(true); // show bar
     }
 
     private bool isGrounded()
