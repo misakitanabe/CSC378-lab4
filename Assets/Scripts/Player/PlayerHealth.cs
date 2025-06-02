@@ -6,13 +6,12 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth { get; private set; }
     private bool dead;
     [SerializeField] private LogicScript logic;
-    private Animator anim;
-    public AudioSource healingSound;
+    private PlayerPowerUp powerUp;
 
     private void Awake()
     {
         currentHealth = startingHealth;
-        anim = GetComponent<Animator>();
+        powerUp = GetComponent<PlayerPowerUp>();
     }
 
     public void TakeDamage(float _damage)
@@ -40,7 +39,6 @@ public class PlayerHealth : MonoBehaviour
     {
         // adds healing amount to current health or stays the same if health is alr maxed out
         currentHealth = Mathf.Min(startingHealth, currentHealth + amount);
-        anim.SetTrigger("healing");
-        healingSound.Play();
+        powerUp.PowerUp(); // plays animation and sound
     }
 }
