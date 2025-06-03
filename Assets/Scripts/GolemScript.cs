@@ -9,9 +9,11 @@ public class GolemScript : MonoBehaviour
     [SerializeField] private LogicScript logic;
     [SerializeField] private PlayerHealth playerHealth;
     public AudioSource hitSound;
+    public Animator anim;
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -29,11 +31,6 @@ public class GolemScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-
-            // if (gameObject.tag == "Golem Boss")
-            // {
-            //     logic.gameWon();
-            // }
         }
     }
     private bool onWall()
