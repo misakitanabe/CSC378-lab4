@@ -77,7 +77,7 @@ public class GolemScript : MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
         }
         // Flip direction golem is going
-        else
+        else if (collision.gameObject.CompareTag("Golem"))
         {
             FlipGolem();
         }
