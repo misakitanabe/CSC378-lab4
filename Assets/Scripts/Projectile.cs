@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float speed;
     private bool hit;
     private BoxCollider2D boxCollider;
-    private Animator anim; // 
+    private Animator anim;
     private float lifetime; // duration of how long our projectile will continue to keep going
 
     private void Awake()
@@ -46,7 +46,12 @@ public class Projectile : MonoBehaviour
             GolemScript golem = collision.gameObject.GetComponent<GolemScript>(); // get the game object that was hit and adjusts it's health
             if (golem != null)
             {
-                golem.health -= 1;
+                // golem hit with vulnerable note - damage 5 for now
+                if (gameObject.name.Substring(5,1).StartsWith(golem.vulnerableNote.ToString()))
+                    golem.health -= 5;
+                // any other note - damage 1
+                else
+                    golem.health -= 1;
                 golem.anim.SetTrigger("Golem Damaged");
             }
         }
