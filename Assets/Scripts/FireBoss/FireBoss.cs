@@ -4,77 +4,99 @@ using UnityEngine;
 
 public class FireBoss : MonoBehaviour
 {
+    private Transform player;
+    private LogicScript logic;
 
-	public Transform player;
+    public bool isFlipped = false;
+    public int health = 10;
 
-	public bool isFlipped = false;
-	public int health = 10;
-	[SerializeField] private LogicScript logic;
-	[SerializeField] private AudioClip roarSound;
-	[SerializeField] private AudioSource roarSource;
-	private AudioSource audioSource;
-	private float roarCooldown;
+    [SerializeField] private AudioClip roarSound;
+    [SerializeField] private AudioSource roarSource;
 
-	void Update()
+    private AudioSource audioSource;
+    private float roarCooldown;
+
+    void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        roarCooldown = Random.Range(5f, 10f);
 
-		roarCooldown -= Time.deltaTime;
+        // Auto-assign player
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+        else
+        {
+            Debug.LogWarning("FireBoss could not find a GameObject with tag 'Player'.");
+        }
 
-		if (roarCooldown <= 0f)
+        // Auto-assign logic
+        logic = FindFirstObjectByType<LogicScript>();
+		if (logic == null)
 		{
-			if (roarSound != null && audioSource != null)
-			{
-				roarSource.PlayOneShot(roarSound);
-			}
-
-			// Set a new random time until the next roar
-			roarCooldown = Random.Range(8f, 15f);
+			Debug.LogWarning("FireBoss could not find LogicScript in the scene.");
 		}
+
+    }
+
+    void Update()
+    {
+        LookAtPlayer(); 
+
+        roarCooldown -= Time.deltaTime;
+
+        if (roarCooldown <= 0f)
+        {
+            if (roarSound != null && audioSource != null)
+            {
+                roarSource.PlayOneShot(roarSound);
+            }
+
+            roarCooldown = Random.Range(8f, 15f);
+        }
 
         if (health <= 0)
         {
             Destroy(gameObject);
 
-            if (gameObject.CompareTag("Fire Boss"))
+            if (gameObject.CompareTag("Fire Boss") && logic != null)
             {
                 logic.gameWon();
             }
         }
-
     }
-	void Awake()
-	{
-		audioSource = GetComponent<AudioSource>();
-		roarCooldown = Random.Range(5f, 10f); // randomize first roar delay
-	}
 
+    public void LookAtPlayer()
+    {
+        if (player == null) return;
 
-	public void LookAtPlayer()
-	{
-		Vector3 flipped = transform.localScale;
-		flipped.z *= -1f;
+        Vector3 scale = transform.localScale;
 
-		if (transform.position.x > player.position.x && isFlipped)
-		{
-			transform.localScale = flipped;
-			transform.Rotate(0f, 180f, 0f);
-			isFlipped = false;
-		}
-		else if (transform.position.x < player.position.x && !isFlipped)
-		{
-			transform.localScale = flipped;
-			transform.Rotate(0f, 180f, 0f);
-			isFlipped = true;
-		}
-	}
+        if (player.position.x > transform.position.x)
+        {
+            scale.x = -Mathf.Abs(scale.x);
+            isFlipped = false;
+        }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x);
+            isFlipped = true;
+        }
 
+        transform.localScale = scale;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(1);
+            }
         }
     }
-
 }

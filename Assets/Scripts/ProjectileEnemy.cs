@@ -11,13 +11,17 @@ public class ProjectileEnemy : MonoBehaviour
     private float lifetime; // duration of how long our projectile will continue to keep going
     [SerializeField] private AudioClip impactSound;
     private AudioSource audioSource;
+    private Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer spriteRenderer; // Assign in inspector
+
+
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>();
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -37,37 +41,56 @@ public class ProjectileEnemy : MonoBehaviour
         // if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MusicNote")){
         //     return;
         // } 
+        if (collision.gameObject.CompareTag("Fire Boss") || collision.gameObject.CompareTag("NormalFireBoss") ){
+            return;
+        }
         if (!hit)
         {
             hit = true;
             boxCollider.enabled = false; // Prevent further collisions
             anim.SetTrigger("explode");
 
-            // 🎵 Play sound
+            // Play sound
             if (impactSound != null)
                 audioSource.PlayOneShot(impactSound);
         }
+     
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>(); // get the game object that was hit and adjusts it's health
             player.TakeDamage(1f);
         }
     }
-
-    public void SetDirection(float _direction)
+    // Handles MusicNote trigger hit
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        lifetime = 0;
-        direction = _direction;
-        gameObject.SetActive(true);
-        hit = false;
-        boxCollider.enabled = true;
-
-        float localScaleX = transform.localScale.x;
-        if (Mathf.Sign(localScaleX) != _direction)
-            localScaleX = -localScaleX;
-
-        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+        if (other.CompareTag("MusicNote"))
+        {
+            Destroy(gameObject);
+            Debug.Log("Projectile hit MusicNote trigger.");
+        }
     }
+
+
+    public void SetDirection(float direction)
+    {
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D not found on ProjectileEnemy!", this);
+            return;
+        }
+
+        rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
+
+        // Flip sprite visually
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.flipX = direction > 0;
+        }
+    }
+
+
+
     // Purpose: Get's rid of gameObject *doesn't destory, simply deactivates*, for projectiles on crash
     private void Deactivate() 
     {
