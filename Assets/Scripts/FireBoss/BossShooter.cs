@@ -6,7 +6,6 @@ public class BossShooter : MonoBehaviour
     [SerializeField] private GameObject darkFlameBallPrefab;
     [SerializeField] private Transform firePoint;
     //[SerializeField] private float shootInterval = 2f;
-    [SerializeField] private float shootDirection = -1f;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shootSound;
 
@@ -30,11 +29,12 @@ public class BossShooter : MonoBehaviour
     public void Shoot()
     {
         GameObject projectile = Instantiate(darkFlameBallPrefab, firePoint.position, Quaternion.identity);
-
         ProjectileEnemy projScript = projectile.GetComponent<ProjectileEnemy>();
+
         if (projScript != null)
         {
-            projScript.SetDirection(shootDirection);
+            float direction = -Mathf.Sign(transform.localScale.x);  // reverse it because left = default
+            projScript.SetDirection(direction);
         }
 
         if (audioSource != null && shootSound != null)
