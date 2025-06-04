@@ -7,9 +7,11 @@ public class PlayerHealth : MonoBehaviour
     private bool dead;
     [SerializeField] private LogicScript logic;
     private PlayerPowerUp powerUp;
+    private Animator anim;
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         currentHealth = startingHealth;
         powerUp = GetComponent<PlayerPowerUp>();
     }
@@ -21,16 +23,16 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth > 0)
         {
             // player still alive
-            // todo: can add a taking damage animation
+            anim.SetTrigger("Damaged"); // taking damage animation
         }
         else
         {
             if (!dead)
             {
                 // player dead
-                // todo: can add a dying animation
                 logic.gameOver();   // displays gameover screen
                 dead = true;
+                anim.SetTrigger("Dead"); // dying animation
             }
         }
     }

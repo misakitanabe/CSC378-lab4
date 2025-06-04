@@ -47,6 +47,7 @@ public class Projectile : MonoBehaviour
             if (golem != null)
             {
                 golem.health -= 1;
+                golem.anim.SetTrigger("Golem Damaged");
             }
         }
         // decreases boss health if hit
