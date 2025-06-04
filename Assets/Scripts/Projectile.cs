@@ -46,9 +46,6 @@ public class Projectile : MonoBehaviour
             GolemScript golem = collision.gameObject.GetComponent<GolemScript>(); // get the game object that was hit and adjusts it's health
             if (golem != null)
             {
-                Debug.Log(golem.vulnerableNote);
-                Debug.Log(gameObject.name);
-                
                 // golem hit with vulnerable note - damage 5 for now
                 if (gameObject.name.Substring(5,1).StartsWith(golem.vulnerableNote.ToString()))
                     golem.health -= 5;

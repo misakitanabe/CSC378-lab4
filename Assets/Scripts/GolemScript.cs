@@ -63,7 +63,6 @@ public class GolemScript : MonoBehaviour
     {
         moveSpeed *= -1;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        Debug.Log(noteObject);
         noteObject.transform.localScale = new Vector3(-noteObject.transform.localScale.x, -noteObject.transform.localScale.y, -noteObject.transform.localScale.z);
     }
 
