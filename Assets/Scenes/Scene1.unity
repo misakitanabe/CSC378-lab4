@@ -9516,7 +9516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8447ea8ff4a48c1817c8f8235a1caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 0.3
+  attackCooldown: 1
   firePoint: {fileID: 1185705039}
   musicNotes:
   - {fileID: 180669740}
