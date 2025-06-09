@@ -30,7 +30,9 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Need to exclude player as an object to hit and projectiles ...
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("MusicNote"))
+        if (collision.gameObject.CompareTag("Player") || 
+            collision.gameObject.CompareTag("MusicNote") || 
+            collision.gameObject.CompareTag("Spawn Wall"))
         {
             return;
         }

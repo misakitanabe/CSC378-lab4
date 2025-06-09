@@ -12,6 +12,7 @@ TagManager:
   - Fire Boss
   - BossProjectile
   - NormalFireBoss
+  - Spawn Wall
   layers:
   - Default
   - TransparentFX
