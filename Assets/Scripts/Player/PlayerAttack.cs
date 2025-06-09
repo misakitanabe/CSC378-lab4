@@ -58,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 PlaySound(i);
                 GameObject noteHolder = musicNotes[i];          // MusicNote_Do in hierarchy
-                GameObject note = FindMusicNote(noteHolder);    // Do in hierarchy
+                GameObject note = FindMusicNote(noteHolder);    // Note_C in hierarchy
                 if (note)
                 {
                     note.transform.position = firePoint.position;
