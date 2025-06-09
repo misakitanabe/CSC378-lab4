@@ -2977,8 +2977,8 @@ Transform:
   m_GameObject: {fileID: 271453356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.7348, y: 2.47, z: 0}
-  m_LocalScale: {x: 0.5167258, y: 2.48783, z: 1}
+  m_LocalPosition: {x: 15.4152, y: 4.4118, z: 0}
+  m_LocalScale: {x: 0.6589287, y: 4.97871, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1796738854}
@@ -3451,8 +3451,8 @@ Transform:
   m_GameObject: {fileID: 292165408}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.6511, y: 46.1193, z: 0}
-  m_LocalScale: {x: 0.4219706, y: 10.029383, z: 0.17230001}
+  m_LocalPosition: {x: -8.5371, y: 46.1193, z: 0}
+  m_LocalScale: {x: 0.7508545, y: 10.029383, z: 0.17230001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 92733282}
@@ -14134,7 +14134,7 @@ GameObject:
   - component: {fileID: 1178276096}
   m_Layer: 0
   m_Name: BossSpawnTrigger
-  m_TagString: Untagged
+  m_TagString: Spawn Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21389,8 +21389,8 @@ Transform:
   m_GameObject: {fileID: 1811497038}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.7994, y: 2.47, z: 0}
-  m_LocalScale: {x: 0.46742192, y: 2.487829, z: 1}
+  m_LocalPosition: {x: -19.1837, y: 3.0526, z: 0}
+  m_LocalScale: {x: 0.92311156, y: 6.4965863, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 92733282}
