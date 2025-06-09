@@ -64,7 +64,7 @@ public class Projectile : MonoBehaviour
                 boss.health -= 1;
             }
         }
-         else if (collision.gameObject.CompareTag("NormalFireBoss"))
+        else if (collision.gameObject.CompareTag("NormalFireBoss"))
         {
             NormalFireBoss boss = collision.gameObject.GetComponent<NormalFireBoss>(); // get the game object that was hit and adjusts it's health
             if (boss != null)

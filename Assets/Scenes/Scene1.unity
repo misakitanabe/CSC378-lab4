@@ -543,8 +543,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163.24, y: -0.034907}
-  m_SizeDelta: {x: 42.048, y: 245.79}
+  m_AnchoredPosition: {x: 159.4, y: -0.034907}
+  m_SizeDelta: {x: 56.1, y: 245.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &71703942
 MonoBehaviour:
@@ -4276,8 +4276,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.8001, y: -0.010509}
-  m_SizeDelta: {x: 57.18, y: 245.74}
+  m_AnchoredPosition: {x: 2.8, y: -0.010509}
+  m_SizeDelta: {x: 55.11, y: 245.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406569695
 MonoBehaviour:
@@ -5370,7 +5370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114.6, y: -0.027908}
+  m_AnchoredPosition: {x: 102.7, y: -0.027908}
   m_SizeDelta: {x: 55.235, y: 245.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491327949
@@ -10136,7 +10136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.19, y: -0.017415}
+  m_AnchoredPosition: {x: 50.96, y: -0.017415}
   m_SizeDelta: {x: 51.6, y: 245.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909927233
@@ -12261,11 +12261,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1759427532871107551, guid: afafc2aedeccc48959aa8a611db0bb02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46.61959
+      value: -29.71
       objectReference: {fileID: 0}
     - target: {fileID: 1759427532871107551, guid: afafc2aedeccc48959aa8a611db0bb02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.048058
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1759427532871107551, guid: afafc2aedeccc48959aa8a611db0bb02, type: 3}
       propertyPath: m_LocalPosition.z
