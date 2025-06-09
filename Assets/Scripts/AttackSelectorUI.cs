@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class AttackSelectorUI : MonoBehaviour
 {
-    public Image[] noteHighlights;  // Drag highlight panels in order: Z, X, C, V, B, N, M
+    public Image[] noteHighlights;  // Drag highlight panels in order: 1, 2, 3, 4, 5, 6, 7
 
     private bool[] isNoteSelected = new bool[7];  // true = selected
 
@@ -14,13 +14,13 @@ public class AttackSelectorUI : MonoBehaviour
         // Collect all keys pressed this frame
         List<int> newlyPressed = new();
 
-        if (Input.GetKeyDown(KeyCode.Z)) newlyPressed.Add(0);
-        if (Input.GetKeyDown(KeyCode.X)) newlyPressed.Add(1);
-        if (Input.GetKeyDown(KeyCode.C)) newlyPressed.Add(2);
-        if (Input.GetKeyDown(KeyCode.V)) newlyPressed.Add(3);
-        if (Input.GetKeyDown(KeyCode.B)) newlyPressed.Add(4);
-        if (Input.GetKeyDown(KeyCode.N)) newlyPressed.Add(5);
-        if (Input.GetKeyDown(KeyCode.M)) newlyPressed.Add(6);
+        if (Input.GetKeyDown(KeyCode.Alpha1)) newlyPressed.Add(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) newlyPressed.Add(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) newlyPressed.Add(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) newlyPressed.Add(3);
+        if (Input.GetKeyDown(KeyCode.Alpha5)) newlyPressed.Add(4);
+        if (Input.GetKeyDown(KeyCode.Alpha6)) newlyPressed.Add(5);
+        if (Input.GetKeyDown(KeyCode.Alpha7)) newlyPressed.Add(6);
 
         // Only update if at least one key was pressed this frame
         if (newlyPressed.Count > 0)
