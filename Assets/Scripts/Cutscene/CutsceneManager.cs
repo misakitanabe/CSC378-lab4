@@ -2,12 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class CutsceneManager : MonoBehaviour
 {
     [Header("UI Elements")]
     public TextMeshProUGUI dialogueText;
     public CanvasGroup canvasGroup;
+    public Button skipButton;
 
     [Header("Cutscene Settings")]
     public string[] cutsceneLines;
@@ -24,6 +26,7 @@ public class CutsceneManager : MonoBehaviour
     void Start()
     {
         dialogueText.text = "";
+        skipButton.onClick.AddListener(SkipCutscene);
         StartCoroutine(BeginCutscene());
     }
 
@@ -97,5 +100,11 @@ public class CutsceneManager : MonoBehaviour
     public void LoadMainScene()
     {
         SceneManager.LoadScene("Scene1"); // change to your gameplay scene name
+    }
+    
+    public void SkipCutscene()
+    {
+        StopAllCoroutines(); 
+        LoadMainScene();     
     }
 }
