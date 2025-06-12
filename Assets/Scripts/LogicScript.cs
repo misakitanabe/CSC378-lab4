@@ -9,6 +9,7 @@ public class LogicScript : MonoBehaviour
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAttack attack;
     [SerializeField] private Image background;
+    [SerializeField] private AudioSource bgm;
 
     void Awake()
     {
@@ -25,7 +26,8 @@ public class LogicScript : MonoBehaviour
         movement.enabled = false; // disables movement for player
         attack.enabled = false; // disables attacks for player
         gameOverScreen.SetActive(true);
-        background.StartCoroutine(DarkenBackground(background));
+        background.StartCoroutine(DarkenBackground(background)); // gradually darkens background
+        bgm.Stop();
     }
 
     public void gameWon()
