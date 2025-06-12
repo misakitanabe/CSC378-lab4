@@ -1,28 +1,74 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 public class LogicScript : MonoBehaviour
 {
     public GameObject gameOverScreen;
     public GameObject winScreen;
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAttack attack;
+    [SerializeField] private Image background;
+
+    void Awake()
+    {
+        // initializes the background image so that all golem prefab instances refer to same image
+        GolemScript.BackgroundImage = background;
+    }
 
     public void restartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void gameOver() 
+    public void gameOver()
     {
         movement.enabled = false; // disables movement for player
         attack.enabled = false; // disables attacks for player
         gameOverScreen.SetActive(true);
+        background.StartCoroutine(DarkenBackground(background));
     }
 
-    public void gameWon() 
+    public void gameWon()
     {
         movement.enabled = false; // disables movement for player
         attack.enabled = false; // disables attacks for player
         winScreen.SetActive(true);
+        background.StartCoroutine(LightenBackground(background));
+    }
+
+    // function to lighten background to max brightness on game won
+    private IEnumerator LightenBackground(Image image)
+    {
+        Color original = image.color;
+        Color target = new(1f, 1f, 1f, 1f);
+
+        float elapsed = 0f;
+        float duration = 1f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            image.color = Color.Lerp(original, target, elapsed / duration);
+            yield return null;
+        }
+
+        image.color = target;
+    }
+    
+    // function to darken background on game over
+    private IEnumerator DarkenBackground(Image image)
+    {
+        Color original = image.color;
+        Color target = new(0.1f, 0.1f, 0.1f);
+
+        float elapsed = 0f;
+        float duration = 1f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            image.color = Color.Lerp(original, target, elapsed / duration);
+            yield return null;
+        }
+
+        image.color = target;
     }
 }
