@@ -25,7 +25,10 @@ public class LogicScript : MonoBehaviour
         movement.enabled = false; // disables movement for player
         attack.enabled = false; // disables attacks for player
         gameOverScreen.SetActive(true);
-        background.StartCoroutine(DarkenBackground(background));
+        if (background != null)
+        {
+            background.StartCoroutine(DarkenBackground(background));
+        }
     }
 
     public void gameWon()
@@ -33,7 +36,10 @@ public class LogicScript : MonoBehaviour
         movement.enabled = false; // disables movement for player
         attack.enabled = false; // disables attacks for player
         winScreen.SetActive(true);
-        background.StartCoroutine(LightenBackground(background));
+        if (background != null)
+        {
+            background.StartCoroutine(LightenBackground(background));
+        }
     }
 
     // function to lighten background to max brightness on game won

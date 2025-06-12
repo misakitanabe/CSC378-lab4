@@ -44,7 +44,10 @@ public class GolemScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            BackgroundImage.StartCoroutine(LightenBackground(BackgroundImage, 0.1f));
+            if (BackgroundImage != null)
+            {
+                BackgroundImage.StartCoroutine(LightenBackground(BackgroundImage, 0.1f));
+            }
         }
     }
 
