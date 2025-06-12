@@ -9,6 +9,8 @@ public class LogicScript : MonoBehaviour
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAttack attack;
     [SerializeField] private Image background;
+    [SerializeField] private AudioSource bgm;
+    [SerializeField] private GameObject gameWonObject;
 
     void Awake()
     {
@@ -22,12 +24,16 @@ public class LogicScript : MonoBehaviour
     }
     public void gameOver()
     {
+        // return early if game won to avoid bug that allows both gamewon and gameover at same time
+        if (gameWonObject.activeInHierarchy)
+            return;
         movement.enabled = false; // disables movement for player
         attack.enabled = false; // disables attacks for player
         gameOverScreen.SetActive(true);
+        bgm.Stop();
         if (background != null)
         {
-            background.StartCoroutine(DarkenBackground(background));
+            background.StartCoroutine(DarkenBackground(background)); // gradually darkens background
         }
     }
 
@@ -36,9 +42,10 @@ public class LogicScript : MonoBehaviour
         movement.enabled = false; // disables movement for player
         attack.enabled = false; // disables attacks for player
         winScreen.SetActive(true);
+        bgm.Stop(); // Stops background music
         if (background != null)
         {
-            background.StartCoroutine(LightenBackground(background));
+            background.StartCoroutine(LightenBackground(background)); // gradually lightens background
         }
     }
 
