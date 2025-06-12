@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class GolemScript : MonoBehaviour
@@ -15,6 +17,7 @@ public class GolemScript : MonoBehaviour
     public Note vulnerableNote;
     private TextMeshPro noteText;
     private Transform noteObject;
+    public static Image BackgroundImage; // Shared by all prefab instances
 
 
     private void Awake()
@@ -37,10 +40,36 @@ public class GolemScript : MonoBehaviour
             FlipGolem();
         }
 
+        // golem killed logic
         if (health <= 0)
         {
             Destroy(gameObject);
+            BackgroundImage.StartCoroutine(LightenBackground(BackgroundImage, 0.1f));
         }
+    }
+
+
+    // function to lighten background that gets called every time golem is killed 
+    private IEnumerator LightenBackground(Image image, float amount)
+    {
+        Color original = image.color;
+        Color target = new Color(
+            Mathf.Min(original.r + amount, 1f),
+            Mathf.Min(original.g + amount, 1f),
+            Mathf.Min(original.b + amount, 1f),
+            original.a
+        );
+
+        float elapsed = 0f;
+        float duration = 1f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            image.color = Color.Lerp(original, target, elapsed / duration);
+            yield return null;
+        }
+
+        image.color = target;
     }
 
     void GenerateRandomNote()
