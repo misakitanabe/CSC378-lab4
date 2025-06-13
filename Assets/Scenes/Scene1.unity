@@ -10261,8 +10261,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &690679194
-BoxCollider2D:
+--- !u!60 &690679194
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10295,7 +10295,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.24358869, y: -1.1238698}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10305,8 +10305,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.623755, y: 2.3322613}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -4.2512894, y: -2.1025343}
+      - {x: -0.634264, y: -2.162692}
+      - {x: -0.5419563, y: -2.1280768}
+      - {x: 3.4210556, y: -0.56240714}
+      - {x: 2.465738, y: 0.6274025}
+      - {x: 1.8751643, y: 0.8474337}
+      - {x: 1.3578719, y: 2.0167117}
+      - {x: 0.59632707, y: 2.0746102}
+      - {x: -0.18221158, y: 1.575274}
+  m_UseDelaunayMesh: 0
 --- !u!1 &692321333
 GameObject:
   m_ObjectHideFlags: 0
