@@ -496,7 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isFlipped: 0
-  health: 10
+  health: 6
   logic: {fileID: 0}
   roarSound: {fileID: 8300000, guid: 76aca98bb67c147b4a970ae5f9612362, type: 3}
   roarSource: {fileID: 2313980797189454474}
