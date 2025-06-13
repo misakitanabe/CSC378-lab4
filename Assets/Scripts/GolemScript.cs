@@ -98,7 +98,6 @@ public class GolemScript : MonoBehaviour
         noteObject.transform.localScale = new Vector3(-noteObject.transform.localScale.x, noteObject.transform.localScale.y, noteObject.transform.localScale.z);
     }
 
-    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // When player collides with golem - damage player
