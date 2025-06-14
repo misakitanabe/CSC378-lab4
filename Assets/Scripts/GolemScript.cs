@@ -68,7 +68,7 @@ public class GolemScript : MonoBehaviour
         // For instaniated objects
     public void DestroySelf()
     {
-        Debug.LogWarning("DestroySelf() animation event triggered!");
+        //Debug.LogWarning("DestroySelf() animation event triggered!");
         Destroy(gameObject); 
     }
 
