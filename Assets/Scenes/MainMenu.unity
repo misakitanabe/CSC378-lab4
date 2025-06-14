@@ -637,8 +637,8 @@ MonoBehaviour:
     Game Design, Music, Art\n\nSammy Paykel \nCode, Game Design, Music\n\nAll art
     created by our team. Music taken from Public Domain."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 20d539456782447068b3b8c78a8ded3a, type: 2}
-  m_sharedMaterial: {fileID: 6688687282553940995, guid: 20d539456782447068b3b8c78a8ded3a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1332ba49a09ab43a4b22a3c870bac8c3, type: 2}
+  m_sharedMaterial: {fileID: -1233410431340489223, guid: 1332ba49a09ab43a4b22a3c870bac8c3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1053,7 +1053,6 @@ RectTransform:
   - {fileID: 958816983}
   - {fileID: 1166850895}
   - {fileID: 2001750103}
-  - {fileID: 1494573700}
   - {fileID: 1003287467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1290,81 +1289,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166850894}
   m_CullTransparentMesh: 1
---- !u!1 &1494573699
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1494573700}
-  - component: {fileID: 1494573702}
-  - component: {fileID: 1494573701}
-  m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1494573700
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494573699}
-  m_LocalRotation: {x: 0, y: 0, z: -0.6832738, w: 0.7301623}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1023381955}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.2}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114.86688, y: -200.99269}
-  m_SizeDelta: {x: 39.6166, y: 22.0225}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1494573701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494573699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2784314}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -1303488210474810115, guid: 835fd4a4dabd3405c93e9b9bbf024211, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1494573702
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494573699}
-  m_CullTransparentMesh: 1
 --- !u!1 &1598848609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,8 +1470,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.7849121, y: 0.7849121}
+  m_SizeDelta: {x: 17.2664, y: 20.4059}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2001750104
 MonoBehaviour:
