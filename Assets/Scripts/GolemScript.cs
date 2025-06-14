@@ -8,7 +8,8 @@ public class GolemScript : MonoBehaviour
     [SerializeField] private float moveSpeed = 0.5f;
     [SerializeField] private LayerMask wallLayer;
     private BoxCollider2D boxCollider;
-    public int health = 10;
+    public float health = 5;
+    public float startingHealth = 5;
     [SerializeField] private LogicScript logic;
     [SerializeField] private PlayerHealth playerHealth;
     public AudioSource hitSound;
@@ -18,6 +19,8 @@ public class GolemScript : MonoBehaviour
     private TextMeshPro noteText;
     private Transform noteObject;
     public static Image BackgroundImage; // Shared by all prefab instances
+    [SerializeField] private Image totalHealthBar;
+    [SerializeField] private Image currentHealthBar;
 
 
     private void Awake()
@@ -27,6 +30,9 @@ public class GolemScript : MonoBehaviour
         noteText = GetComponentInChildren<TextMeshPro>();
         noteObject = transform.Find("GolemNote");
         GenerateRandomNote();
+        // the fillAmount dictates how many of the lives are showing
+        currentHealthBar.fillAmount = 1;
+        totalHealthBar.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -39,6 +45,10 @@ public class GolemScript : MonoBehaviour
         {
             FlipGolem();
         }
+
+        // update golem health in health bar
+        currentHealthBar.fillAmount = health / startingHealth;
+        Debug.Log(health / startingHealth);
 
         // golem killed logic
         if (health <= 0)
