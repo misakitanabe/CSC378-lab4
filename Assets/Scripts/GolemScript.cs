@@ -22,7 +22,6 @@ public class GolemScript : MonoBehaviour
     [SerializeField] private Image totalHealthBar;
     [SerializeField] private Image currentHealthBar;
 
-
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -30,7 +29,7 @@ public class GolemScript : MonoBehaviour
         noteText = GetComponentInChildren<TextMeshPro>();
         noteObject = transform.Find("GolemNote");
         GenerateRandomNote();
-        // the fillAmount dictates how many of the lives are showing
+        // the fillAmount dictates how much of healthbar is showing
         currentHealthBar.fillAmount = 1;
         totalHealthBar.fillAmount = 1;
     }
@@ -48,7 +47,6 @@ public class GolemScript : MonoBehaviour
 
         // update golem health in health bar
         currentHealthBar.fillAmount = health / startingHealth;
-        Debug.Log(health / startingHealth);
 
         // golem killed logic
         if (health <= 0)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FireBoss : MonoBehaviour
 {
@@ -8,10 +9,13 @@ public class FireBoss : MonoBehaviour
     private LogicScript logic;
 
     public bool isFlipped = false;
-    public int health = 10;
+    public float health = 10;
+    public float startingHealth = 10;
 
     [SerializeField] private AudioClip roarSound;
     [SerializeField] private AudioSource roarSource;
+    [SerializeField] private Image totalHealthBar;
+    [SerializeField] private Image currentHealthBar;
 
     private AudioSource audioSource;
     private float roarCooldown;
@@ -34,10 +38,14 @@ public class FireBoss : MonoBehaviour
 
         // Auto-assign logic
         logic = FindFirstObjectByType<LogicScript>();
-		if (logic == null)
-		{
-			Debug.LogWarning("FireBoss could not find LogicScript in the scene.");
-		}
+        if (logic == null)
+        {
+            Debug.LogWarning("FireBoss could not find LogicScript in the scene.");
+        }
+        
+        // the fillAmount dictates how much of healthbar is showing
+        currentHealthBar.fillAmount = 1;
+        totalHealthBar.fillAmount = 1;
 
     }
 
@@ -56,6 +64,9 @@ public class FireBoss : MonoBehaviour
 
             roarCooldown = Random.Range(8f, 15f);
         }
+
+        // update health in health bar
+        currentHealthBar.fillAmount = health / startingHealth;
 
         if (health <= 0)
         {

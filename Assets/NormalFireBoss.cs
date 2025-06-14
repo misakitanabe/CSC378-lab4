@@ -1,18 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NormalFireBoss : MonoBehaviour
 {
     public Transform player;
 
 	public bool isFlipped = false;
-	public int health = 10;
+	public float health = 10;
+	public float startingHealth = 10;
 	[SerializeField] private LogicScript logic;
 	[SerializeField] private AudioClip roarSound;
 	[SerializeField] private AudioSource roarSource;
     [SerializeField] private AudioClip outroSound;
     [SerializeField] private AudioSource outroSource;
     [SerializeField] private GameObject Fire_Boss;
-
+	[SerializeField] private Image totalHealthBar;
+    [SerializeField] private Image currentHealthBar;
 
 
 	private AudioSource audioSource;
@@ -33,26 +36,32 @@ public class NormalFireBoss : MonoBehaviour
 
 			roarCooldown = Random.Range(8f, 15f);
 		}
+		
+		// update health in health bar
+        currentHealthBar.fillAmount = health / startingHealth;
 
 		if (health <= 0)
-        {
-            if (gameObject.CompareTag("NormalFireBoss"))
-            {
-                outroSource.PlayOneShot(outroSound);
+		{
+			if (gameObject.CompareTag("NormalFireBoss"))
+			{
+				outroSource.PlayOneShot(outroSound);
 
-                // Spawn enraged boss at the same position and orientation
-                GameObject enragedBoss = Instantiate(Fire_Boss, transform.position, Quaternion.identity);
-                enragedBoss.transform.localScale = transform.localScale;
-            }
+				// Spawn enraged boss at the same position and orientation
+				GameObject enragedBoss = Instantiate(Fire_Boss, transform.position, Quaternion.identity);
+				enragedBoss.transform.localScale = transform.localScale;
+			}
 
-            Destroy(gameObject);
-        }
+			Destroy(gameObject);
+		}
 	}
 
 	void Awake()
 	{
 		audioSource = GetComponent<AudioSource>();
 		roarCooldown = Random.Range(5f, 10f); // randomize first roar delay
+		// the fillAmount dictates how much of healthbar is showing
+        currentHealthBar.fillAmount = 1;
+        totalHealthBar.fillAmount = 1;
 	}
 
 
