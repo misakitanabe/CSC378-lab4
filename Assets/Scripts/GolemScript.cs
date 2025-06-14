@@ -13,6 +13,8 @@ public class GolemScript : MonoBehaviour
     [SerializeField] private LogicScript logic;
     [SerializeField] private PlayerHealth playerHealth;
     public AudioSource hitSound;
+    public AudioSource deathSound;
+
     public Animator anim;
     public enum Note { A, B, C, D, E, F, G }
     public Note vulnerableNote;
@@ -51,12 +53,23 @@ public class GolemScript : MonoBehaviour
         // golem killed logic
         if (health <= 0)
         {
-            Destroy(gameObject);
+            anim.SetBool("Dead", true);
+            deathSound.Play();
+
+            //Debug.Log("Health Below 0!");
+            //Destroy(gameObject);
             if (BackgroundImage != null)
             {
                 BackgroundImage.StartCoroutine(LightenBackground(BackgroundImage, 0.1f));
             }
         }
+    }
+
+        // For instaniated objects
+    public void DestroySelf()
+    {
+        //Debug.LogWarning("DestroySelf() animation event triggered!");
+        Destroy(gameObject); 
     }
 
 

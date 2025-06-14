@@ -99,6 +99,7 @@ public class ProjectileEnemy : MonoBehaviour
     // For instaniated objects
     private void Destroy()
     {
+        
         Destroy(gameObject); 
     }
 
