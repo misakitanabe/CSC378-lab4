@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      golemdeath8_0: 6710202775956933754
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
